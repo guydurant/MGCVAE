@@ -14,7 +14,7 @@ import warnings
 warnings.filterwarnings(action='ignore')
 import argparse
 
-from graph_converter import graph_features, feature_size, graph_adjacency, graph2mol, vae_results
+from graph_converter import graph_features, feature_size, graph_adjacency, graph2mol, results
 
 parser = argparse.ArgumentParser(description='Small Molecular Graph Conditional Variational Autoencoder for Multi-objective Optimization (logP & Molar Refractivity)')
 parser.add_argument('--data', type=int, default=80000, help='Sampling (default=80000)')
@@ -209,11 +209,12 @@ for epoch in range(1, args.epochs+1):
 
 print()
 print('Generating molecules...')
-vae_df = vae_results(vae, args.gen, z_dim, atom_number, atom_labels, 
-                     row_dim, col_dim, atom_decoder_m, bond_decoder_m)
-vae_df.to_csv(f'{args.output}.csv', index=False)
-print(f'Saving {args.output}.csv ({vae_df.shape[0]})...')
-
+#vae_df = results(vae, args.gen, z_dim, atom_number, atom_labels, 
+#                     row_dim, col_dim, atom_decoder_m, bond_decoder_m)
+#vae_df.to_csv(f'{args.output}.csv', index=False)
+#print(f'Saving {args.output}.csv ({vae_df.shape[0]})...')
+print('Saving weights to saved_checkpoints folder')
+torch.save(vae.state_dict(), '../saved_checkpoints/test_weights.pt')
 print()
 print('Done!')
 print()
