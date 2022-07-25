@@ -1,4 +1,4 @@
-from graph_converter import graph_features, feature_size, graph_adjacency, graph2mol, results
+from .graph_converter import graph_features, feature_size, graph_adjacency, graph2mol, results
 import argparse
 import warnings
 import torch
