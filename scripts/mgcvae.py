@@ -1,4 +1,4 @@
-from .graph_converter import graph_features, feature_size, graph_adjacency, graph2mol, results
+from graph_converter import graph_features, feature_size, graph_adjacency, graph2mol, results
 import argparse
 import warnings
 import torch
@@ -261,7 +261,7 @@ if __name__ == "__main__":
         print(f'Saving {args.output}_{c1}_{c2}.csv ({cvae_df.shape[0]})...')
 
     print('Saving weights to saved_checkpoints folder')
-    torch.save(cvae.state_dict(), '../saved_checkpoints/mgcvae_test_weights.pt')
+    torch.save(cvae.state_dict(), f'../saved_checkpoints/size_{args.size}_mgcvae_test_weights.pt')
     print()
     print('Done!')
     print()

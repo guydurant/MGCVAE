@@ -1,4 +1,4 @@
-from .graph_converter import graph_features, feature_size, graph_adjacency, graph2mol, results
+from graph_converter import graph_features, feature_size, graph_adjacency, graph2mol, results
 import argparse
 import warnings
 import torch
@@ -235,7 +235,7 @@ if __name__ == "__main__":
     #vae_df.to_csv(f'{args.output}.csv', index=False)
     #print(f'Saving {args.output}.csv ({vae_df.shape[0]})...')
     print('Saving weights to saved_checkpoints folder')
-    torch.save(vae.state_dict(), '../saved_checkpoints/test_weights.pt')
+    torch.save(vae.state_dict(), f'../saved_checkpoints/size_{args.size}_test_weights.pt')
     print()
     print('Done!')
     print()
